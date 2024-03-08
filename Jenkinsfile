@@ -39,7 +39,7 @@ pipeline {
         sshagent(credentials : ['SSH_JOSEMA']) {
             sh 'ssh -o StrictHostKeyChecking=no josema@race.overcat.es rm docker-compose.yaml'
             sh 'ssh -o StrictHostKeyChecking=no josema@race.overcat.es docker rmi -f $IMAGEN'
-            sh 'ssh -o StrictHostKeyChecking=no josema@race.overcat.es wget https://raw.githubusercontent.com/Josemanuel4f/django_tutorial-IC/main/docker-compose.yaml -O docker-compose.yaml'
+            sh 'ssh -o StrictHostKeyChecking=no josema@race.overcat.es wget https://raw.githubusercontent.com/Josemanuel4f/Crud-PHP/main/docker-compose.yaml -O docker-compose.yaml'
             sh 'ssh -o StrictHostKeyChecking=no josema@race.overcat.es docker compose up -d --force-recreate'
         }
     }
