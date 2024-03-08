@@ -1,0 +1,28 @@
+version: '3.7'
+services:
+  mariadb_ex:
+    container_name: mariadb_ex
+    image: mariadb
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: josema
+      MARIADB_DATABASE: crud
+      MARIADB_USER: josema
+      MARIADB_PASSWORD: josema
+    volumes:
+      - mariadb_ex:/var/lib/mysql
+  crud:
+    container_name: crud
+    image: josemanuel4fernandez/crud-php
+    restart: always
+    environment:
+      DB_USER: josema
+      DB_PASSWORD: josema
+      DB_HOST: mariadb_ex
+      DB_NAME: crud
+    ports:
+      - 8084:80
+    depends_on:
+      - mariadb_ex
+volumes:
+    mariadb_ex:
