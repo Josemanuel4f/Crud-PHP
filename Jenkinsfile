@@ -37,6 +37,7 @@ pipeline {
                 stage ('SSH') {
     steps{
         sshagent(credentials : ['SSH_JOSEMA']) {
+            sh 'ssh -o StrictHostKeyChecking=no josema@race.overcat.es cd crud'
             sh 'ssh -o StrictHostKeyChecking=no josema@race.overcat.es rm docker-compose.yaml'
             sh 'ssh -o StrictHostKeyChecking=no josema@race.overcat.es docker rmi -f $IMAGEN'
             sh 'ssh -o StrictHostKeyChecking=no josema@race.overcat.es wget https://raw.githubusercontent.com/Josemanuel4f/Crud-PHP/main/docker-compose.yaml -O docker-compose.yaml'
