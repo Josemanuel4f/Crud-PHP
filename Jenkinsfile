@@ -16,7 +16,7 @@ pipeline {
                 stage('BuildImage') {
                     steps {
                         script {
-                            newApp = docker.build "$IMAGEN:latest"
+                            newApp = docker.build "$IMAGEN"
                         }
                     }
                 }
@@ -31,7 +31,7 @@ pipeline {
                 }
                 stage('RemoveImage') {
                     steps {
-                        sh "docker rmi $IMAGEN:latest"
+                        sh "docker rmi $(IMAGEN):latest"
                     }
                 }
                 stage ('SSH') {
