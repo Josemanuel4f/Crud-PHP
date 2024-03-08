@@ -37,8 +37,9 @@ pipeline {
                 stage ('SSH') {
     steps{
         sshagent(credentials : ['SSH_JOSEMA']) {
-            sh 'ssh -o StrictHostKeyChecking=no josema@race.overcat.es cd /home/josema/crud/ && wget https://raw.githubusercontent.com/Josemanuel4f/Crud-PHP/main/docker-compose.yaml -O docker-compose.yaml'
-            sh 'ssh -o StrictHostKeyChecking=no josema@race.overcat.es cd /home/josema/crud && docker compose up -d --force-recreate'
+            sh 'ssh -o StrictHostKeyChecking=no josema@race.overcat.es cd /home/josema/crud/'
+            sh 'ssh -o StrictHostKeyChecking=no josema@race.overcat.es wget https://raw.githubusercontent.com/Josemanuel4f/Crud-PHP/main/docker-compose.yaml -O docker-compose.yaml'
+            sh 'ssh -o StrictHostKeyChecking=no josema@race.overcat.es cd docker compose up -d --force-recreate'
         }
     }
 }
