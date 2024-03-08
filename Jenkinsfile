@@ -1,6 +1,6 @@
 pipeline {
     environment {
-        IMAGEN = "josemanuel4fernandez/crud-ph"
+        IMAGEN = "josemanuel4fernandez/crud-php"
         LOGIN = 'USER_DOCKERHUB'
     }
     agent none
@@ -31,7 +31,7 @@ pipeline {
                 }
                 stage('RemoveImage') {
                     steps {
-                        sh "docker rmi $(IMAGEN):latest"
+                        sh "docker rmi $IMAGEN:latest"
                     }
                 }
                 stage ('SSH') {
