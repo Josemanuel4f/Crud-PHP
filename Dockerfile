@@ -8,7 +8,5 @@ ENV DB_USER josema
 ENV DB_PASSWORD josema
 ENV DB_NAME biblioteca
 ENV DB_HOST mariadb
-RUN a2enmod rewrite
 RUN chmod +x /opt/script.sh && rm /var/www/html/index.html 
-COPY apache2.conf /etc/apache2/apache2.conf
 CMD /opt/script.sh
