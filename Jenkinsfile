@@ -6,7 +6,7 @@ pipeline {
     agent none
     stages {
         stage("Construccion") {
-            agent none
+            agent any
             stages {
                 stage('CloneAnfitrion') {
                     steps {
